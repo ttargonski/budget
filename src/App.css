@@ -1,38 +1,268 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Red Hat Display', sans-serif;
+}
+
 .App {
-  text-align: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.wrapper {
+  margin-top: 40px;
+  width: 1200px;
+  min-height: 500px;
+  box-shadow: 0px 0px 55px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.panel {
+  background-color: #FDFDFD;
+  flex-grow: 1;
+  padding: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 25px 0 0 25px;
+}
+
+.panel h3 {
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  font-size: 42px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.9);
+
+}
+
+.panel .views {
+  list-style: none;
+  display: flex;
+  justify-content: left;
+  width: 100%;
+}
+
+.panel .views li {
+  margin-right: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.views li.active {
+  color: rgba(0, 0, 0, 0.8);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.8);
+}
+
+.add-transaction {
+  width: 30%;
+  padding: 20px;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+}
+
+.pulpit-wrapper {
+  margin-top: 25px;
+}
+
+.balance {
+  background-color: #FAFAFA;
+  width: 100%;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  padding: 25px;
 }
 
-.App-link {
-  color: #61dafb;
+.balance p {
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: normal;
+  font-size: 28px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.balance span {
+  font-weight: bold;
+  font-size: 42px;
+  color: #000000;
+}
+
+.stats {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.income {
+  background-color: #DEFFCE;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  color: #1B6600;
+}
+
+.expense {
+  background-color: #FFC3C3;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  margin-left: 25px;
+  color: #CC0606;
+}
+
+.stats p {
+  font-size: 28px;
+}
+
+.stats span {
+  font-size: 32px;
+  font-weight: bold;
+
+}
+
+.add-transaction {
+  display: flex;
+  flex-direction: column;
+  padding-top: 140px;
+}
+
+.add-transaction h3 {
+  color: rgba(0, 0, 0, 0.9);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+}
+
+.add-transaction .input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.add-transaction .input-group input {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  margin-top: 10px;
+  font-size: 18px;
+  padding: 5px;
+  outline: none;
+}
+
+.add-transaction .input-group input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+
+.add-transaction .input-group select {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  margin-top: 10px;
+  font-size: 18px;
+  padding: 5px;
+  outline: none;
+}
+
+.add-transaction .submit {
+  border: 2px solid rgba(0, 0, 0, 0.9);
+  border-radius: 15px;
+  padding: 5px 25px;
+  font-weight: bold;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.9);
+  background-color: #fff;
+  margin-top: 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.add-transaction .submit:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+}
+
+.transactions-wrapper {
+  display: flex;
+  margin-top: 20px;
+}
+
+.transactions {
+  width: 50%;
+  padding: 15px;
+
+}
+
+.transaction-list {
+  list-style: none;
+  margin-top: 10px;
+
+}
+
+.transaction-list li {
+  padding: 5px 10px;
+  width: 100%;
+  text-align: right;
+  border-radius: 5px;
+}
+
+
+.income-transactions li:nth-child(odd) {
+  background-color: #FAFAFA
+}
+
+.expense-transactions li:nth-child(even) {
+  background-color: #FAFAFA
+}
+
+
+.delete-button {
+  float: right;
+  margin-left: 10px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.delete-button:hover {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.transaction-text {
+  float: left;
+}
+
+.income-transactions {
+  color: #1B6600;
+}
+
+.expense-transactions {
+  color: #CC0606;
 }
