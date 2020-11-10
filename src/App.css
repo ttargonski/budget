@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Red Hat Display', sans-serif;
+  font-family: "Red Hat Display", sans-serif;
 }
 
 .App {
@@ -22,13 +22,12 @@
   display: flex;
   justify-content: center;
   flex-direction: row;
-
 }
 
 .panel {
-  background-color: #FDFDFD;
+  background-color: #fdfdfd;
   flex-grow: 1;
-  padding: 50px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,10 +37,9 @@
 .panel h3 {
   margin-bottom: 40px;
   text-transform: uppercase;
-  font-size: 42px;
-  font-weight: 400;
-  color: rgba(0, 0, 0, 0.9);
-
+  font-size: 32px;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .panel .views {
@@ -84,7 +82,7 @@
 }
 
 .balance {
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   width: 100%;
   border-radius: 25px;
   display: flex;
@@ -116,7 +114,7 @@
 }
 
 .income {
-  background-color: #DEFFCE;
+  background-color: #deffce;
   width: 100%;
   height: 100%;
   border-radius: 25px;
@@ -125,11 +123,11 @@
   justify-content: center;
   align-items: center;
   padding: 25px;
-  color: #1B6600;
+  color: #1b6600;
 }
 
 .expense {
-  background-color: #FFC3C3;
+  background-color: #ffc3c3;
   width: 100%;
   height: 100%;
   border-radius: 25px;
@@ -139,7 +137,7 @@
   align-items: center;
   padding: 25px;
   margin-left: 25px;
-  color: #CC0606;
+  color: #cc0606;
 }
 
 .stats p {
@@ -149,13 +147,13 @@
 .stats span {
   font-size: 32px;
   font-weight: bold;
-
 }
 
 .add-transaction {
   display: flex;
   flex-direction: column;
   padding-top: 140px;
+  background-color: #fff;
 }
 
 .add-transaction h3 {
@@ -170,7 +168,6 @@
   flex-direction: column;
 }
 
-
 .add-transaction .input-group input {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.8);
@@ -183,7 +180,6 @@
 .add-transaction .input-group input::placeholder {
   color: rgba(0, 0, 0, 0.4);
 }
-
 
 .add-transaction .input-group select {
   border: none;
@@ -220,13 +216,11 @@
 .transactions {
   width: 50%;
   padding: 15px;
-
 }
 
 .transaction-list {
   list-style: none;
   margin-top: 10px;
-
 }
 
 .transaction-list li {
@@ -236,15 +230,13 @@
   border-radius: 5px;
 }
 
-
 .income-transactions li:nth-child(odd) {
-  background-color: #FAFAFA
+  background-color: #fafafa;
 }
 
 .expense-transactions li:nth-child(even) {
-  background-color: #FAFAFA
+  background-color: #fafafa;
 }
-
 
 .delete-button {
   float: right;
@@ -265,9 +257,35 @@
 }
 
 .income-transactions {
-  color: #1B6600;
+  color: #1b6600;
 }
 
 .expense-transactions {
-  color: #CC0606;
+  color: #cc0606;
+}
+
+.transactions li:hover {
+  background-color: #f7f7f7;
+}
+
+/*  media */
+
+@media (max-width: 1200px) {
+  .App {
+    background-color: #fdfdfd;
+  }
+
+  .wrapper {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: none;
+  }
+  .panel {
+    width: 100%;
+  }
+  .add-transaction {
+    width: 100%;
+    padding: 25px;
+  }
 }

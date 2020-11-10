@@ -10,8 +10,11 @@ import AddTransaction from "./components/AddTransaction";
 import Transactions from "./components/views/Transactions";
 import Pulpit from "./components/views/Pulpit";
 
+import { GlobalContextProvider } from "./context/GlobalContext";
+
 function App() {
   return (
+    <GlobalContextProvider>
     <Router>
     <div className="App">
       <div className="wrapper">
@@ -33,6 +36,7 @@ function App() {
       </div>
     </div>
     </Router>
+    </GlobalContextProvider>
   );
 }
 
