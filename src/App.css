@@ -27,7 +27,7 @@
 .panel {
   background-color: #fdfdfd;
   flex-grow: 1;
-  padding: 25px;
+  padding: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
