@@ -13,7 +13,7 @@ We can also view statistics and view transaction history.
 
 ## General info
 
-Live demo link - [Your budget]https://your-budget-ttargonski.netlify.app)
+Live demo link - [Your budget](https://your-budget-ttargonski.netlify.app)
 
 ## Technologies
 
