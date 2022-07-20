@@ -11,6 +11,10 @@ The main purpose of the app is to save expenses and income.
 Therefore, the application uses the local memory of the browser.
 We can also view statistics and view transaction history.
 
+## General info
+
+Live demo link - [Your budget]https://your-budget-ttargonski.netlify.app)
+
 ## Technologies
 
 Project is created with:
