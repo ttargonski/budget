@@ -1,16 +1,16 @@
 import React, { useState, useContext } from "react";
 import { GlobalContext } from "../context/GlobalContext";
-import { uuid } from "uuidv4";
+import { v4 as uuidv4 } from "uuid";
 
 const AddTransaction = () => {
-  const { addIncomeTransaction, addExpenseTransaction } = useContext(
-    GlobalContext
-  );
+  const { addIncomeTransaction, addExpenseTransaction } =
+    useContext(GlobalContext);
 
   const [transaction, setTransaction] = useState({
     desc: "",
     amount: "",
-    category: "",
+    incomeExpense: "",
+    category: "Without categories",
   });
 
   const onChangeTransaction = (e) => {
@@ -19,47 +19,51 @@ const AddTransaction = () => {
 
   const onSubmitTransaction = (e) => {
     e.preventDefault();
+    const today = new Date();
+
     if (
       transaction.desc !== "" &&
       transaction.amount !== "" &&
-      transaction.category !== ""
+      transaction.incomeExpense !== ""
     ) {
       const newTransaction = {
-        id: uuid(),
+        id: uuidv4(),
         desc: transaction.desc,
         amount: transaction.amount,
+        category: transaction.category,
+        date: today.toLocaleDateString("en-US"),
       };
-      if (transaction.category === "Income") {
-        console.log(newTransaction);
+
+      if (transaction.incomeExpense === "Income") {
         addIncomeTransaction(newTransaction);
       }
-      if (transaction.category === "Expense") {
+      if (transaction.incomeExpense === "Expense") {
         addExpenseTransaction(newTransaction);
       }
       setTransaction({
         desc: "",
         amount: "",
-        category: "",
+        incomeExpense: "",
+        category: "Without categories",
       });
     }
-
-    console.log(transaction);
   };
 
   return (
     <div className="add-transaction">
       <h3>Add transaction</h3>
       <form onSubmit={onSubmitTransaction}>
-        <div className="input-group">
-          <input
-            type="text"
-            placeholder="Description"
-            name="desc"
-            autoComplete="off"
-            onChange={onChangeTransaction}
-            value={transaction.desc}
-            maxlength="30"
-          />
+        <input
+          type="text"
+          placeholder="Transaction name"
+          name="desc"
+          autoComplete="off"
+          onChange={onChangeTransaction}
+          value={transaction.desc}
+          required
+          maxLength={30}
+        />
+        <div className="form-group">
           <input
             type="number"
             name="amount"
@@ -67,19 +71,43 @@ const AddTransaction = () => {
             placeholder="0"
             onChange={onChangeTransaction}
             value={transaction.amount}
+            required
+            max={100000}
           />
           <select
             placeholder="Income or Expense"
-            name="category"
+            name="incomeExpense"
             onChange={onChangeTransaction}
-            value={transaction.category}
+            value={transaction.incomeExpense}
+            required
           >
-            <option value="">- Please choose -</option>
+            <option value="" disabled selected>
+              - Please choose -
+            </option>
             <option value="Income">Income</option>
             <option value="Expense">Expense</option>
           </select>
         </div>
-        <input className="submit" type="submit" value="Add" />
+        <select
+          placeholder="Category"
+          name="category"
+          onChange={onChangeTransaction}
+          value={transaction.category}
+        >
+          <option value="Without categories">Without categories</option>
+          <option value="Food and drinks">Food and drinks</option>
+          <option value="Shopping">Shopping</option>
+          <option value="House and apartment">House and apartment</option>
+          <option value="Car and transport">Car and transport</option>
+          <option value="Life and entertainment">Life and entertainment</option>
+          <option value="Investments and savings">
+            Investments and savings
+          </option>
+        </select>
+
+        <button className="submit" type="submit">
+          Add
+        </button>
       </form>
     </div>
   );
